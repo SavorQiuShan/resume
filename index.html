@@ -1,0 +1,886 @@
+<html lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>周学君 - 职业经历</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#36CFC9',
+                        neutral: '#F5F7FA',
+                        dark: '#1D2129',
+                        light: '#F9FAFB',
+                        accent: '#FF7D00'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            }
+            .timeline-item {
+                position: relative;
+                padding-left: 2rem;
+                margin-bottom: 2rem;
+            }
+            .timeline-item::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0.5rem;
+                width: 0.75rem;
+                height: 0.75rem;
+                border-radius: 50%;
+                background-color: #165DFF;
+            }
+            .timeline-item::after {
+                content: '';
+                position: absolute;
+                left: 0.375rem;
+                top: 1.75rem;
+                bottom: -2rem;
+                width: 0.0625rem;
+                background-color: #E5E7EB;
+            }
+            .timeline-item:last-child::after {
+                display: none;
+            }
+            .nav-link {
+                @apply relative px-1 py-2 text-gray-700 hover:text-primary transition-colors duration-200;
+            }
+            .nav-link::after {
+                content: '';
+                @apply absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-200;
+            }
+            .nav-link:hover::after {
+                @apply w-full;
+            }
+            .progress-bar {
+                @apply h-2 bg-gray-200 rounded-full overflow-hidden;
+            }
+            .progress-value {
+                @apply h-full bg-primary rounded-full transition-all duration-1000 ease-out;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-dark font-sans">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="sticky top-0 bg-white shadow-md z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#hero" class="text-xl font-bold text-primary flex items-center">
+                <i class="fa fa-user-circle mr-2"></i>
+                <span>周学君 职业档案</span>
+            </a>
+            
+            <!-- 桌面导航 -->
+            <div class="hidden md:flex space-x-6">
+                <a href="#about" class="nav-link">个人信息</a>
+                <a href="#education" class="nav-link">教育经历</a>
+                <a href="#skills" class="nav-link">专业技能</a>
+                <a href="#experience" class="nav-link">项目经验</a>
+                <a href="#contact" class="nav-link">联系方式</a>
+            </div>
+            
+            <!-- 移动端菜单按钮 -->
+            <button id="menu-toggle" class="md:hidden text-primary focus:outline-none">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="#about" class="py-2 hover:text-primary transition">个人信息</a>
+                <a href="#education" class="py-2 hover:text-primary transition">教育经历</a>
+                <a href="#skills" class="py-2 hover:text-primary transition">专业技能</a>
+                <a href="#experience" class="py-2 hover:text-primary transition">项目经验</a>
+                <a href="#contact" class="py-2 hover:text-primary transition">联系方式</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section id="hero" class="relative bg-gradient-to-r from-primary to-primary/80 text-white py-20 md:py-32 overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://picsum.photos/id/1067/1920/1080')] bg-cover bg-center opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-4 text-shadow">周学君</h1>
+                <p class="text-xl md:text-2xl mb-8 opacity-90">合泰软件 | 资深实施工程师</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#about" class="bg-white text-primary px-6 py-3 rounded-lg hover:bg-gray-100 transition transform hover:scale-105 shadow-lg">
+                        查看个人信息 <i class="fa fa-user ml-2"></i>
+                    </a>
+                    <a href="#experience" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg hover:bg-white/10 transition transform hover:scale-105">
+                        浏览项目经验 <i class="fa fa-briefcase ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 波浪装饰 -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] rotate-180">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-[60px] md:h-[80px]">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="fill-gray-50"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="fill-gray-50"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="fill-gray-50"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- 个人信息 -->
+    <section id="about" class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">个人信息</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-3">
+                        <!-- 左侧个人照片 -->
+                        <div class="bg-primary/5 p-8 flex items-center justify-center">
+                            <div class="relative">
+                                <div class="w-48 h-48 md:w-64 md:h-64 rounded-full bg-primary/10 flex items-center justify-center">
+                                    <i class="fa fa-user text-7xl text-primary/60"></i>
+                                </div>
+                                <div class="absolute -bottom-4 -right-4 bg-white rounded-full p-2 shadow-lg">
+                                    <i class="fa fa-id-card text-primary text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 中间个人信息 -->
+                        <div class="p-8 border-t md:border-t-0 md:border-l md:border-r border-gray-100">
+                            <h3 class="text-2xl font-bold mb-6 text-primary">周学君</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fa fa-briefcase text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-medium text-gray-500">当前职位</h4>
+                                        <p class="font-semibold">合泰软件 | 资深实施工程师</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fa fa-graduation-cap text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-medium text-gray-500">学历</h4>
+                                        <p class="font-semibold">浙江树人大学 | 计算机科学与技术 | 本科</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fa fa-calendar text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-medium text-gray-500">工作经验</h4>
+                                        <p class="font-semibold">15年+ 系统实施与项目管理经验</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 右侧联系方式 -->
+                        <div class="p-8 bg-primary/5">
+                            <h3 class="text-xl font-bold mb-6">联系方式</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center mr-4 flex-shrink-0 shadow-sm">
+                                        <i class="fa fa-phone text-primary"></i>
+                                    </div>
+                                    <span>13634137150</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center mr-4 flex-shrink-0 shadow-sm">
+                                        <i class="fa fa-envelope text-primary"></i>
+                                    </div>
+                                    <span>123102394@qq.com</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center mr-4 flex-shrink-0 shadow-sm">
+                                        <i class="fa fa-map-marker text-primary"></i>
+                                    </div>
+                                    <span>杭州合泰软件有限公司</span>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8">
+                                <h4 class="text-sm font-medium text-gray-500 mb-3">专业技能</h4>
+                                <div class="space-y-3">
+                                    <div>
+                                        <div class="flex justify-between mb-1">
+                                            <span class="text-sm font-medium">系统实施</span>
+                                            <span class="text-sm font-medium">95%</span>
+                                        </div>
+                                        <div class="progress-bar">
+                                            <div class="progress-value" style="width: 95%"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between mb-1">
+                                            <span class="text-sm font-medium">项目管理</span>
+                                            <span class="text-sm font-medium">90%</span>
+                                        </div>
+                                        <div class="progress-bar">
+                                            <div class="progress-value" style="width: 90%"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between mb-1">
+                                            <span class="text-sm font-medium">财务系统</span>
+                                            <span class="text-sm font-medium">85%</span>
+                                        </div>
+                                        <div class="progress-bar">
+                                            <div class="progress-value" style="width: 85%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 教育经历 -->
+    <section id="education" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">教育经历</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+                </div>
+                
+                <div class="relative">
+                    <!-- 时间线 -->
+                    <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-200"></div>
+                    
+                    <!-- 教育经历项 -->
+                    <div class="space-y-12">
+                        <!-- 本科 -->
+                        <div class="relative flex flex-col md:flex-row items-center">
+                            <div class="md:w-1/2 md:pr-12 md:text-right mb-6 md:mb-0">
+                                <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+                                    <h3 class="text-xl font-bold mb-2">浙江树人大学</h3>
+                                    <p class="text-gray-600 mb-3">计算机科学与技术 | 本科</p>
+                                    <p class="text-sm text-gray-500">主修课程：计算机网络、数据库系统概论、软件工程等</p>
+                                </div>
+                            </div>
+                            
+                            <div class="absolute left-1/2 transform -translate-x-1/2 z-10 hidden md:block">
+                                <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center shadow-lg">
+                                    <i class="fa fa-graduation-cap text-white"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="md:w-1/2 md:pl-12 md:text-left">
+                                <div class="bg-primary/5 p-6 rounded-xl">
+                                    <div class="inline-block px-3 py-1 bg-primary text-white text-sm font-medium rounded-full mb-2">2004.09-2008.06</div>
+                                    <p class="text-gray-700">在校期间系统学习了计算机基础理论和专业知识，掌握了软件开发、系统设计等技能，为后续职业发展奠定了坚实的理论基础。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 职业资格 -->
+                        <div class="relative flex flex-col md:flex-row items-center">
+                            <div class="md:w-1/2 md:pr-12 md:text-right md:order-1 md:order-2 mb-6 md:mb-0">
+                                <div class="bg-primary/5 p-6 rounded-xl">
+                                    <div class="inline-block px-3 py-1 bg-primary text-white text-sm font-medium rounded-full mb-2">2012.05</div>
+                                    <p class="text-gray-700">通过自主学习考取国家初级会计实务证书，拓宽专业边界，为后续财务系统实施和项目管理提供了更全面的知识支持。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="absolute left-1/2 transform -translate-x-1/2 z-10 hidden md:block">
+                                <div class="w-10 h-10 rounded-full bg-accent flex items-center justify-center shadow-lg">
+                                    <i class="fa fa-certificate text-white"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="md:w-1/2 md:pl-12 md:text-left md:order-2 md:order-1">
+                                <div class="bg-white p-6 rounded-xl shadow-lg card-hover">
+                                    <h3 class="text-xl font-bold mb-2">国家初级会计实务证书</h3>
+                                    <p class="text-gray-600">中国财政部</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 专业技能 -->
+    <section id="skills" class="py-16 bg-neutral">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">专业技能</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- 左侧技能列表 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-xl font-bold mb-6">核心技能</h3>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">系统实施与集成</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">项目管理</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">财务系统</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">供应链管理</span>
+                                    <span>88%</span>
+                                </div>
+                                <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary rounded-full" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">数据分析与决策支持</span>
+                                    <span>80%</span>
+                                </div>
+                                <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary rounded-full" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 右侧技能标签 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-xl font-bold mb-6">专业领域</h3>
+                        
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">酒店管理系统</span>
+                            <span class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">供应链管理</span>
+                            <span class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">财务管理系统</span>
+                            <span class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">项目实施</span>
+                            <span class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">系统集成</span>
+                            <span class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">数据整合</span>
+                            <span class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">集团化管理</span>
+                            <span class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">业财一体化</span>
+                            <span class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">流程优化</span>
+                            <span class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">大数据分析</span>
+                            <span class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">NC系统</span>
+                            <span class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">CLOUD系统</span>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h3 class="text-xl font-bold mb-6">职业优势</h3>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fa fa-check text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">丰富的行业经验</h4>
+                                        <p class="text-sm text-gray-600">15年+酒店行业系统实施与项目管理经验，服务过数十家知名酒店集团</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fa fa-check text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">跨领域知识</h4>
+                                        <p class="text-sm text-gray-600">兼具计算机科学与财务会计专业背景，能够有效沟通技术与业务团队</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fa fa-check text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold">项目交付能力</h4>
+                                        <p class="text-sm text-gray-600">成功主导多个大型集团项目实施，确保高质量交付和客户满意度</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目经验 -->
+    <section id="experience" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">项目经验</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+                </div>
+                
+                <!-- 项目时间线 -->
+                <div class="relative pl-8 md:pl-0">
+                    <!-- 时间线 -->
+                    <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 md:w-0.5 bg-gray-200 transform md:-translate-x-1/2"></div>
+                    
+                    <!-- 项目列表 -->
+                    <div class="space-y-12">
+                        <!-- 项目1 -->
+                        <div class="relative">
+                            <div class="absolute left-0 md:left-1/2 top-0 w-4 h-4 bg-primary rounded-full transform md:-translate-x-1/2 -translate-y-1/2"></div>
+                            
+                            <div class="bg-white border border-gray-100 rounded-xl shadow-lg overflow-hidden card-hover md:ml-0 md:mr-0">
+                                <div class="md:flex">
+                                    <div class="md:w-1/3 bg-primary/5 p-6 flex items-center justify-center">
+                                        <div class="text-center">
+                                            <h3 class="text-xl font-bold text-primary">君澜酒店集团</h3>
+                                            <div class="inline-block px-3 py-1 bg-primary/20 text-primary text-sm font-medium rounded-full mt-2">项目工程师</div>
+                                            <p class="text-sm text-gray-500 mt-2">2013.09-2013.12</p>
+                                        </div>
+                                    </div>
+                                    <div class="md:w-2/3 p-6">
+                                        <h4 class="text-lg font-semibold mb-3">采购平台与报表平台建设</h4>
+                                        <p class="text-gray-600 mb-4">参与搭建采购平台，为成员酒店物资集中采购整合资源，通过规模化采购降低成本，提升采购效率与物资质量。同时协助上线报表平台，实现财务信息实时共享与集中管理，为管理层决策提供数据支撑。</p>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">采购平台</span>
+                                            <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">报表平台</span>
+                                            <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">财务系统</span>
+                                            <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">数据整合</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 项目2 -->
+                        <div class="relative">
+                            <div class="absolute left-0 md:left-1/2 top-0 w-4 h-4 bg-primary rounded-full transform md:-translate-x-1/2 -translate-y-1/2"></div>
+                            
+                            <div class="bg-white border border-gray-100 rounded-xl shadow-lg overflow-hidden card-hover md:ml-0 md:mr-0">
+                                <div class="md:flex">
+                                    <div class="md:w-1/3 bg-primary/5 p-6 flex items-center justify-center">
+                                        <div class="text-center">
+                                            <h3 class="text-xl font-bold text-primary">黄龙饭店</h3>
+                                            <div class="inline-block px-3 py-1 bg-primary/20 text-primary text-sm font-medium rounded-full mt-2">项目工程师</div>
+                                            <p class="text-sm text-gray-500 mt-2">2014.03-2014.05</p>
+                                        </div>
+                                    </div>
+                                    <div class="md:w-2/3 p-6">
+                                        <h4 class="text-lg font-semibold mb-3">智能化物资采购平台定制开发</h4>
+                                        <p class="text-gray-600 mb-4">
+                                            为黄龙饭店定制智能化物资采购平台，整合采购申请、供应商管理、价格监控等功能，实现采购全流程数字化。通过平台分析历史数据优化采购策略，引入供应商竞价机制降低成本，同时实现库存智能管理。
+                                        </p>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">采购系统</span>
+                                            <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">供应商管理</span>
+                                            <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">库存管理</span>
+                                            <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">数据分析</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 项目3 -->
+                        <div class="relative">
+                            <div class="absolute left-0 md:left-1/2 top-0 w-4 h-4 bg-primary rounded-full transform md:-translate-x-1/2 -translate-y-1/2"></div>
+                            
+                            <div class="bg-white border border-gray-100 rounded-xl shadow-lg overflow-hidden card-hover md:ml-0 md:mr-0">
+                                <div class="md:flex">
+                                    <div class="md:w-1/3 bg-primary/5 p-6 flex items-center justify-center">
+                                        <div class="text-center">
+                                            <h3 class="text-xl font-bold text-primary">开元集团</h3>
+                                            <div class="inline-block px-3 py-1 bg-primary/20 text-primary text-sm font-medium rounded-full mt-2">项目工程师</div>
+                                            <p class="text-sm text-gray-500 mt-2">2014.06-2015.05</p>
+                                        </div>
+                                    </div>
+                                    <div class="md:w-2/3 p-6">
+                                        <h4 class="text-lg font-semibold mb-3">开元旅业集团酒店系统改造升级</h4>
+                                        <p class="text-gray-600 mb-4">
+                                            参与完成开元旅业集团30多家酒店系统的改造升级与上线任务，通过高强度工作确保项目按时完成，推动旗下酒店运营效率与服务质量提升，获得集团内部发文表彰。
+                                        </p>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">系统升级</span>
+                                            <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">酒店管理</span>
+                                            <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">集团化</span>
+                                            <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">多门店</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 项目4 -->
+                        <div class="relative">
+                            <div class="absolute left-0 md:left-1/2 top-0 w-4 h-4 bg-primary rounded-full transform md:-translate-x-1/2 -translate-y-1/2"></div>
+                            
+                            <div class="bg-white border border-gray-100 rounded-xl shadow-lg overflow-hidden card-hover md:ml-0 md:mr-0">
+                                <div class="md:flex">
+                                    <div class="md:w-1/3 bg-primary/5 p-6 flex items-center justify-center">
+                                        <div class="text-center">
+                                            <h3 class="text-xl font-bold text-primary">四川明宇商旅集团</h3>
+                                            <div class="inline-block px-3 py-1 bg-primary/20 text-primary text-sm font-medium rounded-full mt-2">项目负责人</div>
+                                            <p class="text-sm text-gray-500 mt-2">2019.06-2020.06</p>
+                                        </div>
+                                    </div>
+                                    <div class="md:w-2/3 p-6">
+                                        <h4 class="text-lg font-semibold mb-3">核心系统板块建设与NC系统替换</h4>
+                                        <p class="text-gray-600 mb-4">
+                                            负责上线供应链管理、财务管理、餐饮成本等多个核心系统板块，完成NC系统替换工作，制定集团标准流程，实现业务与财务数据顺畅运行，为集团决策提供数据支撑。
+                                        </p>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">供应链管理</span>
+                                            <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">财务管理</span>
+                                            <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">餐饮成本</span>
+                                            <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">NC系统</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 项目5 -->
+                        <div class="relative">
+                            <div class="absolute left-0 md:left-1/2 top-0 w-4 h-4 bg-primary rounded-full transform md:-translate-x-1/2 -translate-y-1/2"></div>
+                            
+                            <div class="bg-white border border-gray-100 rounded-xl shadow-lg overflow-hidden card-hover md:ml-0 md:mr-0">
+                                <div class="md:flex">
+                                    <div class="md:w-1/3 bg-primary/5 p-6 flex items-center justify-center">
+                                        <div class="text-center">
+                                            <h3 class="text-xl font-bold text-primary">浙江雷迪森酒店集团</h3>
+                                            <div class="inline-block px-3 py-1 bg-primary/20 text-primary text-sm font-medium rounded-full mt-2">项目负责人</div>
+                                            <p class="text-sm text-gray-500 mt-2">2021.04-2022.04</p>
+                                        </div>
+                                    </div>
+                                    <div class="md:w-2/3 p-6">
+                                        <h4 class="text-lg font-semibold mb-3">集团系统升级与数据整合</h4>
+                                        <p class="text-gray-600 mb-4">
+                                            推动集团全系统升级至CLOUD版本，提升集采率，通过标准接口实现各业务板块数据无缝衔接，打破信息壁垒，实现大数据整合，为运营决策提供支持。
+                                        </p>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">系统升级</span>
+                                            <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">CLOUD系统</span>
+                                            <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">数据整合</span>
+                                            <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">集采平台</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 项目6 -->
+                        <div class="relative">
+                            <div class="absolute left-0 md:left-1/2 top-0 w-4 h-4 bg-primary rounded-full transform md:-translate-x-1/2 -translate-y-1/2"></div>
+                            
+                            <div class="bg-white border border-gray-100 rounded-xl shadow-lg overflow-hidden card-hover md:ml-0 md:mr-0">
+                                <div class="md:flex">
+                                    <div class="md:w-1/3 bg-primary/5 p-6 flex items-center justify-center">
+                                        <div class="text-center">
+                                            <h3 class="text-xl font-bold text-primary">福建天元酒店集团</h3>
+                                            <div class="inline-block px-3 py-1 bg-primary/20 text-primary text-sm font-medium rounded-full mt-2">项目负责人</div>
+                                            <p class="text-sm text-gray-500 mt-2">2024.05-2024.09</p>
+                                        </div>
+                                    </div>
+                                    <div class="md:w-2/3 p-6">
+                                        <h4 class="text-lg font-semibold mb-3">供应链与财务管理系统上线</h4>
+                                        <p class="text-gray-600 mb-4">
+                                            上线供应链管理、财务管理、数据驾驶舱等多个系统板块，打破业财壁垒实现数据实时共享，通过大数据分析为管理层提供精准决策依据，提升集团管理效率与市场竞争力。
+                                        </p>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">供应链</span>
+                                            <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">财务管理</span>
+                                            <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">数据驾驶舱</span>
+                                            <span class="text-xs px-2 py-1 bg-gray-100 rounded-full">业财一体化</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系区域 -->
+    <section id="contact" class="py-16 bg-neutral">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">联系信息</h2>
+                    <div class="w-20 h-1 bg-primary mx-auto rounded-full"></div>
+                </div>
+                
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <!-- 左侧联系信息 -->
+                        <div class="p-8 md:p-12">
+                            <h3 class="text-2xl font-bold mb-6">联系方式</h3>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fa fa-phone text-primary text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-medium text-gray-500">电话</h4>
+                                        <p class="text-lg font-semibold">13634137150</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fa fa-envelope text-primary text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-medium text-gray-500">邮箱</h4>
+                                        <p class="text-lg font-semibold">123102394@qq.com</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fa fa-map-marker text-primary text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-medium text-gray-500">公司地址</h4>
+                                        <p class="text-lg font-semibold">中国·杭州·滨江江陵路2028号星耀城A座10F</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fa fa-globe text-primary text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-medium text-gray-500">公司网站</h4>
+                                        <p class="text-lg font-semibold">http://www.hotelsoft.cn</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-10">
+                                <h4 class="text-lg font-semibold mb-4">工作时间</h4>
+                                <p class="text-gray-600">周一至周五: 9:00 - 18:00</p>
+                                <p class="text-gray-600">周末: 休息</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 右侧地图和二维码 -->
+                        <div class="bg-primary/5 p-8 md:p-12 flex flex-col justify-center">
+                            <h3 class="text-2xl font-bold mb-6">公司位置</h3>
+                            
+                            <!-- 地图占位 -->
+                            <div class="bg-gray-200 rounded-xl overflow-hidden mb-8 h-64 flex items-center justify-center">
+                                <div class="text-center p-4">
+                                    <i class="fa fa-map-o text-4xl text-gray-400 mb-2"></i>
+                                    <p class="text-gray-500">杭州合泰软件有限公司</p>
+                                    <p class="text-sm text-gray-400">滨江江陵路2028号星耀城A座10F</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex justify-between items-center">
+                                <div class="bg-white p-4 rounded-xl shadow-sm">
+                                    <h4 class="text-sm font-medium text-center mb-2">联系二维码</h4>
+                                    <div class="w-32 h-32 bg-gray-100 rounded flex items-center justify-center">
+                                        <i class="fa fa-qrcode text-3xl text-gray-400"></i>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="text-sm font-medium text-gray-500 mb-2">关注我们</h4>
+                                    <div class="flex space-x-4">
+                                        <a href="#" class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm hover:bg-primary hover:text-white transition-colors">
+                                            <i class="fa fa-weixin"></i>
+                                        </a>
+                                        <a href="#" class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm hover:bg-primary hover:text-white transition-colors">
+                                            <i class="fa fa-weibo"></i>
+                                        </a>
+                                        <a href="#" class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm hover:bg-primary hover:text-white transition-colors">
+                                            <i class="fa fa-linkedin"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">周学君 职业档案</h3>
+                        <p class="text-gray-400 mb-4">
+                            拥有15年+酒店行业系统实施与项目管理经验，专注于酒店管理系统、供应链管理和财务管理系统的实施与优化。
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fa fa-weixin text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fa fa-weibo text-xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fa fa-linkedin text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">快速链接</h3>
+                        <ul class="space-y-2">
+                            <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">个人信息</a></li>
+                            <li><a href="#education" class="text-gray-400 hover:text-white transition-colors">教育经历</a></li>
+                            <li><a href="#skills" class="text-gray-400 hover:text-white transition-colors">专业技能</a></li>
+                            <li><a href="#experience" class="text-gray-400 hover:text-white transition-colors">项目经验</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">联系信息</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">联系我们</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center">
+                                <i class="fa fa-map-marker text-primary mr-3"></i>
+                                <span class="text-gray-400">中国·杭州·滨江江陵路2028号星耀城A座10F</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-phone text-primary mr-3"></i>
+                                <span class="text-gray-400">0571-88921093</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-envelope text-primary mr-3"></i>
+                                <span class="text-gray-400">123102394@qq.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-500 text-sm">© 2025 周学君 职业档案. 保留所有权利.</p>
+                    <p class="text-gray-500 text-sm mt-2 md:mt-0">最后更新: 2025年7月14日</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 滚动时导航栏样式变化
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2', 'shadow-lg');
+                navbar.classList.remove('py-3', 'shadow-md');
+            } else {
+                navbar.classList.add('py-3', 'shadow-md');
+                navbar.classList.remove('py-2', 'shadow-lg');
+            }
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // 关闭移动端菜单
+                document.getElementById('mobile-menu').classList.add('hidden');
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 技能进度条动画
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const progressBars = entry.target.querySelectorAll('.progress-value');
+                    progressBars.forEach(bar => {
+                        const width = bar.style.width;
+                        bar.style.width = '0';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 100);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+    </script>
+
+
+    </body></html>
